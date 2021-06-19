@@ -19,7 +19,7 @@ final appRoutes = SimpleLocationBuilder(
     '/': (context, state) => BeamPage(
           key: ValueKey('Home'),
           title: 'Home',
-          child: HomeScreen(),
+          child: NeumorphicUI(),
         ),
   },
 );

@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 // Models:
 
 // Screens:
-import 'package:cryptocurrency_tracker/screens/homeScreen.dart';
 
 // Services:
 
 // State:
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:provider/provider.dart';
+import 'package:cryptocurrency_tracker/state/themeProvider.dart';
 
 // Widgets:
 
@@ -19,7 +19,10 @@ import 'package:cryptocurrency_tracker/utils/appRoutes.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
-    ProviderScope(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (BuildContext context) => ThemeNotifier())
+      ],
       child: MyApp(),
     ),
   );

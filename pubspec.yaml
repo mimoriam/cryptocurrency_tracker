@@ -30,7 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.3
 
   # State Management:
-  flutter_riverpod: ^0.14.0+3
+  provider: ^5.0.0
   shared_preferences: ^2.0.6
 
   # Routing:
@@ -43,6 +43,9 @@ dependencies:
 
   # Forms:
   flutter_form_builder: ^6.0.1
+
+  # UI-kit:
+  flutter_neumorphic: ^3.1.0
 
 dev_dependencies:
   flutter_test:
