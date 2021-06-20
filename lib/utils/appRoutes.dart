@@ -12,6 +12,7 @@ import 'package:cryptocurrency_tracker/screens/homeScreen.dart';
 // Widgets:
 
 // Custom:
+
 import 'package:beamer/beamer.dart';
 
 final appRoutes = SimpleLocationBuilder(
@@ -19,7 +20,7 @@ final appRoutes = SimpleLocationBuilder(
     '/': (context, state) => BeamPage(
           key: ValueKey('Home'),
           title: 'Home',
-          child: NeumorphicUI(),
+          child: HomeScreen(),
         ),
   },
 );

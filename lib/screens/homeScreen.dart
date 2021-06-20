@@ -10,39 +10,10 @@ import 'package:cryptocurrency_tracker/services/cryptoService.dart';
 
 // State:
 import 'package:provider/provider.dart';
-import 'package:cryptocurrency_tracker/state/themeProvider.dart';
 
 // Widgets:
 
 // Custom:
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-
-class NeumorphicUI extends StatefulWidget {
-  @override
-  _NeumorphicUIState createState() => _NeumorphicUIState();
-}
-
-class _NeumorphicUIState extends State<NeumorphicUI> {
-  @override
-  Widget build(BuildContext context) {
-    return NeumorphicApp(
-      debugShowCheckedModeBanner: false,
-      // themeMode: ThemeMode.dark,
-      themeMode: Provider.of<ThemeNotifier>(context).darkTheme ? ThemeMode.dark : ThemeMode.light,
-      theme: NeumorphicThemeData(
-        baseColor: Color(0xFFFFFFFF),
-        lightSource: LightSource.topLeft,
-        depth: 10,
-      ),
-      darkTheme: NeumorphicThemeData(
-        baseColor: Color(0xFF3E3E3E),
-        lightSource: LightSource.topLeft,
-        depth: 1,
-      ),
-      home: HomeScreen(),
-    );
-  }
-}
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -67,14 +38,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.3,
+                height: 100,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 3,
+                  itemCount: 5,
                   itemBuilder: (BuildContext context, int index) {
                     return Placeholder(
-                      fallbackWidth: MediaQuery.of(context).size.width * 0.4,
-                      fallbackHeight: MediaQuery.of(context).size.height * 0.3,
+                      fallbackWidth: 100,
+                      fallbackHeight: 100,
                     );
                   },
                 ),
@@ -84,12 +55,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Text("Market"),
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.05,
+                height: 50,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: 5,
                   itemBuilder: (BuildContext context, int index) {
-                    return NeumorphicButton(
+                    return ElevatedButton(
                       onPressed: () {},
                       child: Text("Something"),
                     );

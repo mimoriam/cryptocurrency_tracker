@@ -107,7 +107,9 @@ class Datum {
         "volume24": volume24,
         "volume24a": volume24A,
         "csupply": csupply,
+        // ignore: unnecessary_null_comparison
         "tsupply": tsupply == null ? "" : tsupply,
+        // ignore: unnecessary_null_comparison
         "msupply": msupply == null ? "" : msupply,
       };
 }

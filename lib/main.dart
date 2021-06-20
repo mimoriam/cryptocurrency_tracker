@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 // Models:
@@ -15,15 +16,21 @@ import 'package:cryptocurrency_tracker/state/themeProvider.dart';
 // Custom:
 import 'package:beamer/beamer.dart';
 import 'package:cryptocurrency_tracker/utils/appRoutes.dart';
+import 'package:device_preview/device_preview.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (BuildContext context) => ThemeNotifier())
+        ChangeNotifierProvider(
+          create: (BuildContext context) => ThemeNotifier(),
+        )
       ],
-      child: MyApp(),
+      child: DevicePreview(
+        enabled: !kReleaseMode,
+        builder: (context) => MyApp(),
+      ),
     ),
   );
 }
@@ -39,6 +46,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routerDelegate: routerDelegate,
       routeInformationParser: BeamerParser(),
+      locale: DevicePreview.locale(context), // Add the locale here
+      builder: DevicePreview.appBuilder,
     );
   }
 }
